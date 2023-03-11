@@ -1,6 +1,19 @@
 version: 2.1
 
 jobs:
+  check-skip-ci:
+    docker:
+      - image: cimg/base:2023.03
+    steps:
+      - run: |
+        set +e
+
+        git notes show | fgrep "[skip-ci]"
+        if [ $? -eq 0 ] then
+          circleci-agent step halt
+        fi
+
+        set -e
   my-job:
     docker:
       - image: cimg/base:2023.03
@@ -12,4 +25,5 @@ jobs:
 workflows:
   my-workflow:
     jobs:
+      - check-skip-ci
       - my-job
