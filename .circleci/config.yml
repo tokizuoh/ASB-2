@@ -9,6 +9,7 @@ jobs:
       - run: |
           set +e
 
+          git notes
           git notes show | fgrep "[skip-ci]"
           if [ $? -eq 0 ]; then
             exit 1
