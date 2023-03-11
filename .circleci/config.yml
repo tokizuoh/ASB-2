@@ -10,7 +10,7 @@ jobs:
           set +e
 
           git notes show | fgrep "[skip-ci]"
-          if [ $? -eq 0 ] then
+          if [ $? -eq 0 ]; then
             circleci-agent step halt
           fi
 
