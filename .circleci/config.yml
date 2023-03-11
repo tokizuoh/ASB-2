@@ -28,3 +28,5 @@ workflows:
     jobs:
       - check-skip-ci
       - my-job
+        requires:
+          - check-skip-si
