@@ -9,8 +9,7 @@ jobs:
       - run: |
           set +e
 
-          git fetch origin refs/notes/commits
-          git notes
+          git fetch origin refs/notes/commits:refs/notes/commits
           git notes show | fgrep "[skip-ci]"
           if [ $? -eq 0 ]; then
             exit 1
