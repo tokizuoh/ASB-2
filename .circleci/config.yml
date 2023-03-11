@@ -1,0 +1,13 @@
+version: 2.1
+
+jobs:
+  my-job:
+    docker:
+      - image: cimg/base
+    steps:
+      - run: "Hello, World!"
+
+workflows:
+  my-workflow:
+    jobs:
+      - my-job
