@@ -7,14 +7,14 @@ jobs:
     steps:
       - checkout
       - run: |
-          set +e
+          # set +e
 
           git notes show | fgrep "[skip-ci]"
           if [ $? -eq 0 ]; then
             circleci-agent step halt
           fi
 
-          set -e
+          # set -e
   my-job:
     docker:
       - image: cimg/base:2023.03
