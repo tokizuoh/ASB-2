@@ -6,10 +6,10 @@ jobs:
       - image: cimg/base:2023.03
     steps:
       - checkout
-      - run: git fetch origin refs/notes/commits
       - run: |
           set +e
 
+          git fetch origin refs/notes/commits
           git notes
           git notes show | fgrep "[skip-ci]"
           if [ $? -eq 0 ]; then
