@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: cimg/base:2023.03
     steps:
-      - run: "Hello, World!"
+      - run: echo "Hello, World!"
 
 workflows:
   my-workflow:
